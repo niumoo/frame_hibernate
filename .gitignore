@@ -22,6 +22,9 @@
 hs_err_pid*
 
 target/
+.settings/
+.classpath
+.project
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
