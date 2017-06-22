@@ -41,7 +41,7 @@ public class PostServlet extends HttpServlet {
 		request.setAttribute("tags", tags);
 		request.setAttribute("post", post);
 		// 页面跳转
-		ServletUtil.returnJsp("/post.jsp", request, response);
+		ServletUtil.returnJsp("post.jsp", request, response);
 
 	}
 

@@ -7,22 +7,26 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** 
+/**
  * 
  * @author Niu
- * @data   2017年6月20日 下午10:24:53
+ * @data 2017年6月20日 下午10:24:53
  */
 public class ServletUtil {
 	/**
 	 * 页面跳转
+	 * 
 	 * @param jsp
 	 * @param request
 	 * @param response
 	 */
-	public static void returnJsp(String jsp,HttpServletRequest request,HttpServletResponse response){
+	public static void returnJsp(String jsp, HttpServletRequest request, HttpServletResponse response) {
+		if (!jsp.startsWith("/")) {
+			jsp = "/WEB-INF/view/" + jsp;
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(jsp);
 		try {
-			dispatcher .forward(request, response);
+			dispatcher.forward(request, response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
