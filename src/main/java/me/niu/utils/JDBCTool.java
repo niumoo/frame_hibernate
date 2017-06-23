@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 
 public class JDBCTool {
-	public static final String URL = "jdbc:mysql://127.0.0.1/maven_blog";
+	public static final String URL = "jdbc:mysql://127.0.0.1/maven_blog?useUnicode=true&characterEncoding=UTF-8";
 	public static final String NAME = "com.mysql.jdbc.Driver";
 	public static final String USER = "root";
 	public static final String PASSWORD = "123";
@@ -29,9 +29,8 @@ public class JDBCTool {
 	 * @return
 	 */
 	public ResultSet select(String sql) {
-		if(conn == null){
-			setConnection();
-		}
+		System.out.println("JDBC: "+sql);
+		setConnection();
 		try {
 			pStatement = conn.prepareStatement(sql);
 			rs = pStatement.executeQuery();

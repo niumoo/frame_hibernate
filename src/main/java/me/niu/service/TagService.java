@@ -56,5 +56,26 @@ public class TagService {
 		}
 		return tags;
 	}
+	
+	/**
+	 * 根据标签名称查询文章id
+	 * @return
+	 */
+	public ArrayList<Integer> getTagByName(String name) {
+		ArrayList<Integer> postIds = new ArrayList<Integer>();
+		String sql = "select DISTINCT POST_ID from TAG where TAG_NAME=\"" + name+"\"";
+		JDBCTool jdbcTool = new JDBCTool();
+		ResultSet rs = jdbcTool.select(sql);
+		try {
+			while (rs.next()) {
+				int postId = rs.getInt("POST_ID");
+				postIds.add(postId);
+			}
+			jdbcTool.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return postIds;
+	}
 
 }

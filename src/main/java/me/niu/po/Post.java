@@ -13,6 +13,23 @@ public class Post {
 	private String title;
 	private String subhead;
 	private String summary;
+	private String markdown;
+	private String htmlContent;
+	private String path;
+	private Date createTime;
+	private Date updateTime;
+	private int readCount;
+	private int status;
+
+	
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 	public String getSummary() {
 		return summary;
 	}
@@ -21,15 +38,8 @@ public class Post {
 		this.summary = summary;
 	}
 
-	private String markdown;
-	private String htmlContent;
-	private Date createTime;
-	private Date updateTime;
-	private int readCount;
-	private int status;
 
-
-	public Post(int id, String title, String subhead, String summary, String markdown, String htmlContent,
+	public Post(int id, String title, String subhead, String summary, String markdown, String htmlContent, String path,
 			Date createTime, Date updateTime, int readCount, int status) {
 		super();
 		this.id = id;
@@ -38,6 +48,7 @@ public class Post {
 		this.summary = summary;
 		this.markdown = markdown;
 		this.htmlContent = htmlContent;
+		this.path = path;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 		this.readCount = readCount;

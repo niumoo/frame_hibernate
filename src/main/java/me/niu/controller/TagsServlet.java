@@ -15,26 +15,43 @@ import me.niu.service.TagService;
 import me.niu.utils.ServletUtil;
 
 /**
- * 标签页面 Servlet implementation class TagsServlet
+ * 标签页面 Servlet
  */
 @WebServlet("/tags")
 public class TagsServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 是/tags
+	 * 		1：取所有文章
+	 * 		2：取所有标签
+	 * 是/tags?name=xxx
+	 * 		1:根据标签名取对应的文章id
+	 * 		2：根据文章id取文章
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("servlet:/tags");
 		PostService postService = new PostService();
-		ArrayList<Post> posts = postService.getPostList();
-
 		TagService tagService = new TagService();
-		ArrayList<String> tags = tagService.getTagList();
+		String tagName = request.getParameter("name");
+		if (tagName == null) {
+			ArrayList<Post> posts = postService.getPostList();
+			ArrayList<String> tags = tagService.getTagList();
+			request.setAttribute("tags", tags);
+			request.setAttribute("posts", posts);
+			// 页面跳转
+			ServletUtil.returnJsp("tags.jsp", request, response);
+		} else {
 
-		request.setAttribute("tags", tags);
-		request.setAttribute("posts", posts);
-		// 页面跳转
-		ServletUtil.returnJsp("tags.jsp", request, response);
+			ArrayList<Integer> tagNames = tagService.getTagByName(tagName);
+			ArrayList<Post> posts = postService.getPostById(tagNames);
+
+			request.setAttribute("tagName", tagName);
+			request.setAttribute("posts", posts);
+			ServletUtil.returnJsp("tags.jsp", request, response);
+		}
+
 	}
 
 }

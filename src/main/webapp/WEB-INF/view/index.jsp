@@ -19,7 +19,7 @@
     <c:import url="/navigation.jsp"></c:import>
 	<!-- Page Header -->
 	<header class="page-header"
-		style="background-image: url('img/home-bg.jpg')">
+		style="background-image: url('${pageContext.request.contextPath}/img/home-bg.jpg')">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
@@ -44,7 +44,7 @@
 			<div class=" col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 postlist-container ">
 				<c:forEach items="${posts }" var="post">
 		            <div class="post-preview">
-	                    <a href="${pageContext.request.contextPath}/post?id=${post.id}">
+	                    <a href="${pageContext.request.contextPath}/post/${post.path}">
 	                        <h2 class="post-title">${post.title}</h2>
 	                        <h3 class="post-subtitle">${post.subhead}</h3>
 	                        <div class="post-content-preview">${post.summary}</div>
@@ -55,9 +55,9 @@
 	                <hr>
 	            </c:forEach>
 				<!-- Pager -->
-				<ul class="pager">
+				<!-- <ul class="pager">
 					<li class="next"><a href="/page2">Older Posts &rarr;</a></li>
-				</ul>
+				</ul> -->
 			</div>
 			
 			<!-- Sidebar Container -->
@@ -138,7 +138,7 @@
 						<li><a target="_blank" href="https://github.com/">GitHub
 						</a></li>
 					</ul>
-					<span>Copyright © <a href="${pageContext.request.contextPath}/">by NiuMoo</a></span>
+					<span>Copyright © by <a href="${pageContext.request.contextPath}/">NiuMoo</a></span>
 				</div>
 			</div>
 		</div>

@@ -19,7 +19,7 @@
 	<c:import url="/navigation.jsp"></c:import>
 	<!-- Page Header -->
 	<header class="page-header"
-		style="background-image: url('img/home-bg.jpg')">
+		style="background-image: url('${pageContext.request.contextPath}/img/home-bg.jpg')">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
@@ -134,7 +134,7 @@
 						<li><a target="_blank" href="https://github.com/">GitHub
 						</a></li>
 					</ul>
-					<span>Copyright © <a href="${pageContext.request.contextPath}/">by NiuMoo</a></span>
+					<span>Copyright © by <a href="${pageContext.request.contextPath}/">NiuMoo</a></span>
 				</div>
 			</div>
 		</div>

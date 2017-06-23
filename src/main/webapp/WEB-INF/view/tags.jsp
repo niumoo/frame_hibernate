@@ -20,13 +20,13 @@
     <c:import url="/navigation.jsp"></c:import>
 	<!-- Page Header -->
 	<header class="page-header"
-		style="background-image: url('img/home-bg.jpg')">
+		style="background-image: url('${pageContext.request.contextPath}/img/home-bg.jpg')">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
 					<div class="site-heading">
 						<h1>
-							<a href="${pageContext.request.contextPath}/tags">标签</a>
+							<a href="${pageContext.request.contextPath}/tags">${empty tagName ? '标签云':tagName}</a>
 						</h1>
 						<!--<hr class="small">-->
 						<span class="subheading">一生想做浪漫极客</span>
@@ -53,7 +53,7 @@
 				<!-- 文章列表 start -->
 				<c:forEach items="${posts }" var="post">
 					<div class="post-preview">
-						<a href="${pageContext.request.contextPath}/post?id=${post.id}">
+						<a href="${pageContext.request.contextPath}/post/${post.path}">
 							<h2 class="post-title">${post.title}</h2>
 							<h3 class="post-subtitle">${post.subhead}</h3>
 						</a>
@@ -81,7 +81,7 @@
 						<li><a target="_blank" href="https://github.com/">GitHub
 						</a></li>
 					</ul>
-					<span>Copyright © <a href="#">by NiuMoo</a></span>
+					<span>Copyright © by <a href="${pageContext.request.contextPath}/">NiuMoo</a></span>
 				</div>
 			</div>
 		</div>
@@ -89,6 +89,6 @@
 
 	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 	<!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </body>
 </html>
