@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-<title>Tags - XYZ的博客</title>
+<title>${empty tagName ? '标签云':tagName} - XYZ的博客</title>
 <!-- Bootstrap -->
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/imniu.css" rel="stylesheet">
@@ -75,11 +75,16 @@
 			<div class="row">
 				<div
 					class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-					<ul class="list-inline ">
-						<li><a target="_blank" href="https://twitter.com/">知乎 </a></li>
-						<li><a target="_blank" href="http://weibo.com/">微博 </a></li>
-						<li><a target="_blank" href="https://github.com/">GitHub
+					<ul class="list-inline">
+						<li><a target="_blank" href="https://www.github.com/"> <span
+								class="fa-stack fa-lg"><i
+									class="fa fa-circle fa-stack-2x"></i><i
+									class="fa fa-github fa-stack-1x fa-inverse">GitHub</i> </span>
 						</a></li>
+						<li><a target="_blank" href="https://www.zhihu.com/"><span
+								class="fa-stack fa-lg"><i
+									class="fa fa-circle fa-stack-2x"></i><i
+									class="fa fa-stack-1x fa-inverse">知乎</i> </span> </a></li>
 					</ul>
 					<span>Copyright © by <a href="${pageContext.request.contextPath}/">NiuMoo</a></span>
 				</div>

@@ -88,22 +88,15 @@
 						</p>
 						<!-- SNS Link -->
 						<ul class="list-inline">
-							<li><a href="#"><span class="fa-stack fa-lg"><i
-										class="fa fa-circle fa-stack-2x"></i><i
-										class="fa fa-twitter fa-stack-1x fa-inverse">推特</i> </span> </a></li>
-							<li><a target="_blank" href="#"><span
-									class="fa-stack fa-lg"><i
-										class="fa fa-circle fa-stack-2x"></i><i
-										class="fa fa-stack-1x fa-inverse">知乎</i> </span> </a></li>
-							<li><a target="_blank" href="#"><span
-									class="fa-stack fa-lg"><i
-										class="fa fa-circle fa-stack-2x"></i><i
-										class="fa fa-weibo fa-stack-1x fa-inverse">微博</i> </span> </a></li>
-							<li><a target="_blank" href="#"> <span
+							<li><a target="_blank" href="https://www.github.com/"> <span
 									class="fa-stack fa-lg"><i
 										class="fa fa-circle fa-stack-2x"></i><i
 										class="fa fa-github fa-stack-1x fa-inverse">GitHub</i> </span>
 							</a></li>
+							<li><a target="_blank" href="https://www.zhihu.com/"><span
+									class="fa-stack fa-lg"><i
+										class="fa fa-circle fa-stack-2x"></i><i
+										class="fa fa-stack-1x fa-inverse">知乎</i> </span> </a></li>
 						</ul>
 					</div>
 				</section>
@@ -111,16 +104,8 @@
 				<hr>
 				<h5>FRIENDS</h5>
 				<ul class="list-inline">
-					<li><a href="http://mida.re/">乱序</a></li>
-					<li><a href="http://qianduan.guru/">前端外刊评论</a></li>
-					<li><a href="http://lingyu.wang/">天镶的博客</a></li>
-					<li><a href="https://hmqk1995.github.io">Luke 的自留地</a></li>
-					<li><a href="http://ebnbin.com/">Ebn's Blog</a></li>
-					<li><a href="https://blog.smdcn.net">SmdCn's Blog</a></li>
-					<li><a href="http://xieminis.me/">解旻的博客</a></li>
-					<li><a href="http://dhong.co">DHong Say</a></li>
-					<li><a href="https://ingf.github.io/">尹峰以为</a></li>
-					<li><a href="https://wepiaofei.github.io/blog/">前端神盾局</a></li>
+					<li><a href="http://www.google.com/">Google</a></li>
+					<li><a href="http://www.csdn.net/">CSDN</a></li>
 				</ul>
 			</div>
 		</div>
