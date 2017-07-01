@@ -1,23 +1,18 @@
-package me.niu.controller;
+package me.imniu.controller;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import me.niu.po.Post;
-import me.niu.service.PostService;
-import me.niu.service.TagService;
-import me.niu.utils.JDBCTool;
-import me.niu.utils.ServletUtil;
+import me.imniu.po.Post;
+import me.imniu.service.PostService;
+import me.imniu.service.TagService;
+import me.imniu.utils.ServletUtil;
 
 /**
  * 查询文章列表，返回首页
@@ -33,10 +28,10 @@ public class IndexServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		PostService postService = new PostService();
-		ArrayList<Post> posts = postService.getPostList();
+		List<Post> posts = postService.getPostList();
 		
 		TagService tagService = new TagService();
-		ArrayList<String> tags = tagService.getTagList();
+		List<String> tags = tagService.getTagList();
 		
 		request.setAttribute("tags", tags);
 		request.setAttribute("posts", posts);

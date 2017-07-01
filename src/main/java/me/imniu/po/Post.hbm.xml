@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0 //EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--映射配置文件 -->
+<hibernate-mapping>
+	<!-- name代表的是实体类名，table代表的是表名 -->
+	<class name="me.imniu.po.Post" table="POST">
+		<!-- name=id 代表的是customer类中的属性 column=id代表的是table表中的字段 -->
+		<id name="id" column="ID" type="integer">
+			<!-- 主键生成策略 -->
+			<generator class="native"></generator>
+		</id>
+		<!-- 其他属性使用property标签来映射 -->
+		<property name="title" column="TITLE" type="string"></property>
+		<property name="subhead" column="SUBHEAD" type="string"></property>
+		<property name="summary" column="SUMMARY" type="string"></property>
+		<property name="markdown" column="MARKDOWN" type="string"></property>
+		<property name="htmlContent" column="HTML_CONTENT" type="string"></property>
+		<property name="path" column="PATH" type="string"></property>
+		<property name="createTime" column="CREATE_TIME" type="date"></property>
+		<property name="readCount" column="READ_COUNT" type="integer"></property>
+		<property name="status" column="STATUS" type="integer"></property>
+	</class>
+
+
+</hibernate-mapping>

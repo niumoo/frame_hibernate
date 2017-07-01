@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0 //EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--映射配置文件 -->
+<hibernate-mapping>
+	<!-- name代表的是实体类名，table代表的是表名 -->
+	<class name="me.imniu.po.Tag" table="TAG">
+		<!-- name=id 代表的是customer类中的属性 column=id代表的是table表中的字段 -->
+		<id name="id" column="TAG_ID" type="integer">
+			<!-- 主键生成策略 -->
+			<generator class="native"></generator>
+		</id>
+		<!-- 其他属性使用property标签来映射 -->
+		<property name="tagName" column="TAG_NAME" type="string"></property>
+		<property name="postId" column="POST_ID" type="integer"></property>
+	</class>
+
+
+</hibernate-mapping>

@@ -1,4 +1,4 @@
-package me.niu.utils;
+package me.imniu.utils;
 
 import java.io.IOException;
 
