@@ -62,7 +62,8 @@
 		});
 	}
 </script>
-<body>
+
+<body style="background-color: #4E4E4E">
    <div id="layout">
     <div id="test-editormd">
      <textarea style="display: none;">[TOC]
@@ -152,7 +153,7 @@ editor.setPreviewTheme('theme-name');
     </div>
    </div>
    
-<div class="container">
+<div class="container" style="background-color: white;padding-top: 20px;border-radius: 10px;">
     <div class="row">
         <div class="col-lg-12  col-md-12 text-left">
 	                        标题：
@@ -249,9 +250,9 @@ editor.setPreviewTheme('theme-name');
                         path : '${pageContext.request.contextPath}/mark/lib/',
                         toolbarIconTexts : {
                             save : "save"  // 如果没有图标，则可以这样直接插入内容，可以是字符串或HTML标签
-                        },
+                        }
                     });
-
+            
             themeSelect("editormd-theme-select", editormd.themes, "theme",
                     function($this, theme) {
                         testEditor.setTheme(theme);
