@@ -20,22 +20,25 @@ import me.imniu.utils.ServletUtil;
  * @author niu
  *
  */
-@WebServlet("/index")
+@WebServlet({ "/index"})
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		PostService postService = new PostService();
 		List<Post> posts = postService.getPostList();
-		
 		TagService tagService = new TagService();
 		List<String> tags = tagService.getTagList();
-		
 		request.setAttribute("tags", tags);
 		request.setAttribute("posts", posts);
 		// 页面跳转
 		ServletUtil.returnJsp("index.jsp", request, response);
 	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
+
 }

@@ -19,7 +19,8 @@
 		<property name="markdown" column="MARKDOWN" type="string"></property>
 		<property name="htmlContent" column="HTML_CONTENT" type="string"></property>
 		<property name="path" column="PATH" type="string"></property>
-		<property name="createTime" column="CREATE_TIME" type="date"></property>
+		<property name="createTime" column="CREATE_TIME" type="java.util.Date"></property>
+		<property name="updateTime" column="UPDATE_TIME" type="java.util.Date"></property>
 		<property name="readCount" column="READ_COUNT" type="integer"></property>
 		<property name="status" column="STATUS" type="integer"></property>
 	</class>

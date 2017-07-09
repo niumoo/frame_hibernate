@@ -1,11 +1,15 @@
 package me.imniu.service;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
+import org.slf4j.LoggerFactory;
 
+
+import me.imniu.po.Tag;
 import me.imniu.utils.HibernateUtils;
 
 /**
@@ -15,6 +19,22 @@ import me.imniu.utils.HibernateUtils;
  * @data 2017年6月20日 下午11:03:41
  */
 public class TagService {
+	private static final org.slf4j.Logger logger= LoggerFactory.getLogger(TagService.class);
+	
+	
+	/**
+	 * 插入数据
+	 * @param Tag
+	 * @return id
+	 */
+	public Integer insert(Tag tag) {
+		Session session = HibernateUtils.getSession();
+		Transaction transaction = session.beginTransaction();
+		Serializable save = session.save(tag);
+		transaction.commit();
+		session.close();
+		return Integer.valueOf(save.toString());
+	}
 	
 	/**
 	 * 查询所有的标签名称，去重复
@@ -30,21 +50,6 @@ public class TagService {
 		transaction.commit();
 		session.close();
 		return list;
-		// 以下使用jdbc完成
-		// ArrayList<String> tags = new ArrayList<String>();
-		// String sql = "select DISTINCT TAG_NAME from TAG";
-		// JDBCTool jdbcTool = new JDBCTool();
-		// ResultSet rs = jdbcTool.select(sql);
-		// try {
-		// while (rs.next()) {
-		// String tagName = rs.getString("TAG_NAME");
-		// tags.add(tagName);
-		// }
-		// jdbcTool.close();
-		// } catch (SQLException e) {
-		// e.printStackTrace();
-		// }
-		// return tags;
 	}
 
 	/**
@@ -52,33 +57,17 @@ public class TagService {
 	 * 
 	 * @return
 	 */
-	public List<String> getTagByPostId(String id) {
+	public List<Tag> getTagByPostId(Integer id) {
 		Session session = HibernateUtils.getSession();
 		Transaction transaction = session.beginTransaction();
 		
-		String hql = "select distinct(tagName) from Tag where postId="+id;
+		String hql = "from Tag where postId="+id;
 		Query query = session.createQuery(hql);
-		List<String> list = query.list();
+		List<Tag> list = query.list();
 		transaction.commit();
 		session.close();
 		return list;
 	}
-	// public ArrayList<String> getTagByPostId(String postId) {
-	// ArrayList<String> tags = new ArrayList<String>();
-	// String sql = "select DISTINCT TAG_NAME from TAG where POST_ID="+postId;
-	// JDBCTool jdbcTool = new JDBCTool();
-	// ResultSet rs = jdbcTool.select(sql);
-	// try {
-	// while (rs.next()) {
-	// String tagName = rs.getString("TAG_NAME");
-	// tags.add(tagName);
-	// }
-	// jdbcTool.close();
-	// } catch (SQLException e) {
-	// e.printStackTrace();
-	// }
-	// return tags;
-	// }
 
 	/**
 	 * 根据标签名称查询文章id
@@ -94,24 +83,14 @@ public class TagService {
 		transaction.commit();
 		session.close();
 		return postIdList;
-	
 	}
-	// public ArrayList<Integer> getTagByName(String name) {
-	// ArrayList<Integer> postIds = new ArrayList<Integer>();
-	// String sql = "select DISTINCT POST_ID from TAG where TAG_NAME=\"" +
-	// name+"\"";
-	// JDBCTool jdbcTool = new JDBCTool();
-	// ResultSet rs = jdbcTool.select(sql);
-	// try {
-	// while (rs.next()) {
-	// int postId = rs.getInt("POST_ID");
-	// postIds.add(postId);
-	// }
-	// jdbcTool.close();
-	// } catch (SQLException e) {
-	// e.printStackTrace();
-	// }
-	// return postIds;
-	// }
+	
+	public void delete(Tag tag){
+		Session session = HibernateUtils.getSession();
+		Transaction transaction = session.beginTransaction();
+		session.delete(tag);
+		transaction.commit();
+		session.close();
+	}
 
 }
